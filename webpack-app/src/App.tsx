@@ -6,12 +6,13 @@ import './App.css';
 // console.log(ButtonModule);
 const ButtonModule = await import("vite_Remote/Button");
 const Button = ButtonModule.default.Button;
-console.log(Button)
+// console.log(Button)
 function App() {
   return (
       <div className="App">
          {/* <header className="App-header"> */}
-        <img src={logo} className="App-logo" alt="logo" />
+         <p>This is Akash</p>
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <Button/>
         {/* </header> */}
         {/* <Suspense>

@@ -5,9 +5,10 @@ const ModuleFederationPlugin =
 
 module.exports = override((config) => {
   config.output.publicPath = "auto";
-  config.experiments = {
-    outputModule: true,
-  };
+  config.output.scriptType = "module";
+  // config.experiments = {
+  //   outputModule: true,
+  // };
   const deps = require("../package.json").dependencies;
   // console.log(config.plugins)
   config.plugins.shift()
@@ -43,7 +44,7 @@ module.exports = override((config) => {
     new ModuleFederationPlugin({
       name: "webpack-host",
       filename: "remoteEntry.js",
-      library: { type: "module" },
+      // library: { type: "module" },
       remotes: {
         "vite_Remote": `promise import("http://localhost:5001/assets/remoteEntry.js")`,
       },
