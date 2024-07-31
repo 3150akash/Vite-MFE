@@ -1,25 +1,23 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+// import ButtonModule from "vite_Remote/Button";
+// const Button = ButtonModule.Button;
+// console.log(ButtonModule);
+const ButtonModule = await import("vite_Remote/Button");
+const Button = ButtonModule.default.Button;
+console.log(Button)
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+      <div className="App">
+         {/* <header className="App-header"> */}
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <Button/>
+        {/* </header> */}
+        {/* <Suspense>
+          <ButtonModule/>
+        </Suspense> */}
+      </div>
   );
 }
 
